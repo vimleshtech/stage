@@ -1,0 +1,85 @@
+
+use hrms
+
+select * from C_Employee
+
+select top 2 * from C_Employee order by Salary desc
+
+select * from (select top 2 * from C_Employee order by Salary desc) t 
+
+--2nd highest
+select top 1 * from 
+			(select top 2 * from C_Employee order by Salary desc) t
+order by salary asc  
+
+
+--forth highest 
+select top 1 * from 
+			(select top 4 * from C_Employee order by Salary desc) a
+order by salary asc  
+
+
+select top 1 * from C_Employee order by Salary desc
+
+--get third lowest salary 
+select top 1  *  from 
+		(select top 3 * from C_Employee order by Salary asc) a
+order by salary desc 
+
+
+
+--show me all the records wehre salary is greater than employee whose eid is 3
+
+select * from C_Employee  where salary >(select  salary from C_Employee where EmpID = 3)
+
+
+select * from C_Employee where salary 
+
+
+
+-- 
+product
+pid pname pprice sprice 
+1   dove   10    20
+2   iphone   50000   60000
+
+
+transaction 
+tid pid  type  qty date
+1   2     p    100  
+2   1     p     200
+3   1     s    50
+4   1     s   10
+5   2     s  20
+6   2    p 10
+
+
+output:
+pid  pname  total_purchase total_sales   in_stokc
+1     dove   200               60           140
+
+
+
+	subquery
+	constraints
+
+
+	sub-query: query iniside query 
+	================================
+	table:emp
+	eid name gender salary
+	1   nitin  male 35556
+	2   a  	male 10000
+	3   b  	male 20000
+	4   c  	male 30000
+	5   d  	male 3555
+
+
+
+	show employee details who has 2nd highest salary
+
+	select * from emp order by sal desc
+			
+
+	
+	
